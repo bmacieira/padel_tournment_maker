@@ -17,6 +17,27 @@ possibleGames = []
 teams = []
 jornadas = 0
 
+playersColorList = {}
+
+const menColors = [
+    "#E74C3C", // Red
+    "#3498DB", // Blue
+    "#2ECC71", // Green
+    "#F39C12", // Yellow
+    "#9B59B6", // Purple
+    "#E67E22", // Orange
+  ];
+  
+  const womenColors = [
+    "#F1948A", // Light Red
+    "#A9CCE3", // Light Blue
+    "#A2D9A2", // Light Green
+    "#F9E79F", // Light Yellow
+    "#D7BDE2", // Light Purple
+    "#F5B7B1", // Light Orange
+  ];
+  
+
 function reset(obj) {
     let keys = Object.keys(obj)
     keys.forEach(key => {
@@ -68,6 +89,7 @@ BUTTON.addEventListener('click', () => {
     })
     men = [...menPlayers]
     women = [...womenPlayers]
+    colorList(men, women)
     joinedPlayer = men.concat(women)
     joinedPlayer.forEach(player => {
         controlPlayers[player] = {}
@@ -93,6 +115,20 @@ BUTTON.addEventListener('click', () => {
     }
     
 })
+
+function colorList(men, women) {
+    let control = 0
+    men.forEach(player => {
+        playersColorList[player]=menColors[control]
+        control++
+    })
+    control=0
+    women.forEach(player => {
+        playersColorList[player]=womenColors[control]
+        control++
+    })
+    console.log(playersColorList)
+}
 
 function testTeams(pl1, pl2, pl3, pl4) {
     if (controlPlayers[pl1][pl3]<2 && 
@@ -212,21 +248,29 @@ function showGame(teams, executionTime) {
     for (a=0;a<numeroJornadas;a++) {
         let jornadaIndex = jornadasBreakpoints[a]
         let div = document.createElement('div');
+        let table = document.createElement('table');
         div.classList.add('jogos');
         let p = document.createElement('h3');
         p.textContent = `Jornada #${a+1}`
         console.log(`Jornada #${a+1}`)
         div.appendChild(p)
         for(i=jornadaIndex;i<jornadaIndex+(jogosPorJornada*2);i+=2) {
-            let p2 = document.createElement('p');
-            p2.textContent = `${teams[i]} vs ${teams[i+1]}`
-            div.appendChild(p2)
+            let team1 = teamSplit(teams[i])
+            let team2 = teamSplit(teams[i+1])
+            let tr = document.createElement('tr');
+            tr.innerHTML = `<th style="background-color:${playersColorList[team1[0]]}">${team1[0]}</th><th style="background-color:${playersColorList[team1[1]]}">${team1[1]}</th><th class="vs"> vs </th><th style="background-color:${playersColorList[team2[0]]}">${team2[0]}</th><th style="background-color:${playersColorList[team2[1]]}">${team2[1]}</th>`
+            table.append(tr)
             console.log(`${teams[i]} vs ${teams[i+1]}`)
         }
+        div.append(table)
         resultsDIV.appendChild(div)
     }
     let info = document.createElement('p')
     info.textContent = `Demorámos ${executionTime}s a criar este torneio. Quanto tempo demoraria você?`
     infoDIV.appendChild(info)
     resultsDIV.classList.remove('hide')
+}
+
+function teamSplit(players) {
+    return players.split('/')
 }

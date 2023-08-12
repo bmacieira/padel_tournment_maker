@@ -122,16 +122,18 @@ i {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
+    gap: 45px;
 }
 
-#resultados p {
+#resultados h3 {
     padding: 0.4em;
+    margin-bottom: 0.6em;
 }
 
 #resultados div {
-    width: 350px;
+    width: 40%;
     text-align: center;
+    margin-bottom: 1em;
 }
 
 #info {
@@ -145,6 +147,18 @@ i {
     margin: auto;
     font-style: italic;
     margin-bottom: 3em;
+}
+
+table {
+    width: 100%;
+}
+
+table tr {
+    height: 45px;
+}
+
+.vs {
+    width: 2em;
 }
 
 @media screen and (max-width: 768px) {
