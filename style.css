@@ -1,0 +1,160 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.title {
+    text-align: center;
+    margin: 20px;
+}
+
+main {
+    text-align: center;
+}
+
+.jogadores {
+    width: 80%;
+    display: flex;
+    margin: auto;
+    gap: 20px;
+    flex-direction: row;
+    justify-content: center;
+    align-items:start;
+    flex: 1;
+}
+
+.players {
+    padding: 1em;
+    text-align: center;
+    flex: 1;
+}
+
+.players>h1 {
+    font-size: 1.5em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+input {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    flex: 1;
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+
+button {
+    width: 100px;
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+    cursor: pointer;
+    flex: 0.1;
+}
+
+i {
+    font-size: 30pt;
+    cursor: pointer;
+}
+
+.less {
+    margin-left: 10px;
+}
+
+.loading {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.animationOn {
+    animation: loading 2s infinite ease-in-out;
+}
+
+.loading p {
+    color:cornflowerblue;
+    font-size: 14pt;
+    padding: 0.5em;
+    margin-top: 10px;
+}
+
+.loading img {
+    width: 150px;
+    text-align: center;
+}
+
+.hide {
+    display: none;
+}
+
+@keyframes loading {
+    0% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+	transform: rotate(180deg);
+    }
+    100% {
+        opacity: 0.3;
+        transform: scale(1);
+        transform: rotate(360deg);
+    }
+}
+
+#resultados {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+#resultados p {
+    padding: 0.4em;
+}
+
+#resultados div {
+    width: 350px;
+    text-align: center;
+}
+
+#info {
+    text-align: center;
+    padding: 20px;
+    font-weight: 400;
+}
+
+.info {
+    width: 50%;
+    margin: auto;
+    font-style: italic;
+    margin-bottom: 3em;
+}
+
+@media screen and (max-width: 768px) {
+        .jogadores {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .players {
+            justify-content: center;
+        }
+}

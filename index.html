@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Padel Tournment Maker</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css" defer>
+</head>
+<body>
+    <main>
+        <h1 class="title">Padel Tournment Maker</h1>
+        <div id="container" class="container">
+        <div><p class="info">O número de jogadores masculinos deve ser par e o numero de jogadores femininos deve ser equivalente. Não são gerados jogos caso essa situação não se verifique.</p></div>
+        <div class="jogadores">
+            <div class="players men">
+                <h1>Homens</h1>
+                <div class="box">
+                <label for="homem1">Jogador:</label>
+                <input type="text" name="homem1" class="homem">
+                <i class="fa fa-plus-square plus" aria-hidden="true"></i>
+                <i class="fa fa-minus-square less" aria-hidden="true"></i>
+            </div>
+            </div>
+            <div class="players women" id="">
+                <h1>Mulheres</h1>
+                <div class="box">
+                <label for="mulher1">Jogador:</label>
+                <input type="text" name="mulher1" class="mulher">
+                </div>
+            </div>
+        </div>
+        <button>Submit</button>
+        </div>
+    </main>
+    <div class="loading hide" id="loading">
+        <img src="padel.png" alt="Padel Icon">
+        <p>Estamos a preparar o seu torneio...</p>
+    </div>
+    <div id="resultados" class="hide">
+
+    </div>
+    <div id="info">
+
+    </div>
+</body>
+<script src="script3.js"></script>
+</html>
