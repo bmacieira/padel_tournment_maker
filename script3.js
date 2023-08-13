@@ -266,7 +266,7 @@ function showGame(teams, executionTime) {
         resultsDIV.appendChild(div)
     }
     let info = document.createElement('p')
-    info.textContent = `Demorámos ${executionTime}s a criar este torneio. Quanto tempo demoraria você?`
+    info.textContent = `Torneio gerado a ${new Date()}`
     infoDIV.appendChild(info)
     resultsDIV.classList.remove('hide')
 }
